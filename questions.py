@@ -1,58 +1,12 @@
-# Olimpiada darajasidagi murakkab viktorina savollari
-QUESTIONS = [
-    {
-        "id": 1,
-        "question": "O'zgaruvchanlik va qonunchilikka ko'ra, O'zbekiston Respublikasining 'Davlat bayrog'i to'g'risida'gi Qonuni ilk bor nechanchi yilda qabul qilingan va undagi yulduzlar nimani anglatadi?",
-        "options": [
-            "1991-yil 18-noyabr, 12 ta ma'muriy hudud",
-            "1991-yil 31-avgust, 12 ta oy (qamariy taqvim bo'yicha)",
-            "1991-yil 18-noyabr, 12 ta burj (zodiak) belgisi va osmon sferasidagi o'n ikki oy",
-            "1992-yil 2-iyul, 12 ta viloyat"
-        ],
-        "answer": "1991-yil 18-noyabr, 12 ta burj (zodiak) belgisi va osmon sferasidagi o'n ikki oy"
-    },
-    {
-        "id": 2,
-        "question": "Bayroqdagi moviy rang qadimgi turkiy tilda va Temuriylar davrida nimaning ramzi hisoblangan?",
-        "options": [
-            "Tinchlik va osmon",
-            "Mangulik, osmon va suv (sobitqadamlik)",
-            "Tinchliksevarlik va muqaddaslik",
-            "Faqatgina musaffo osmon"
-        ],
-        "answer": "Mangulik, osmon va suv (sobitqadamlik)"
-    },
-    {
-        "id": 3,
-        "question": "O'zbekiston bayrog'idagi oq rang va qizil hoshiyali yupqa chiziqlar (yo'llar) qanday ma'noni anglatadi?",
-        "options": [
-            "Oq rang — poklik, qizil chiziqlar — hayotiy kuchlar",
-            "Oq rang — tinchlik, qizil chiziqlar — jasorat",
-            "Oq rang — muqaddas tinchliksevarlik, qizil chiziqlar — tomirda oqayotgan hayotiy kuchlar",
-            "Oq rang — adolat, qizil chiziqlar — vatanparvarlik"
-        ],
-        "answer": "Oq rang — muqaddas tinchliksevarlik, qizil chiziqlar — tomirda oqayotgan hayotiy kuchlar"
-    },
-    {
-        "id": 4,
-        "question": "Hilol (yarim oy) tasviri bayroqda necha gradusli yoy ko'rinishida va qanday joylashgan?",
-        "options": [
-            "Tik turgan holatda, o'ng tomonga qaratilgan",
-            "An'anaviy o'n ikki oy va musulmonchilik ramzi sifatida gorizontal o'qqa nisbatan og'ishgan holda",
-            "Bayroqning qoq markazida, vertikal holatda",
-            "Yulduzlardan chaproqda, to'liq doira shaklining qirqilgan qismi sifatida"
-        ],
-        "answer": "An'anaviy o'n ikki oy va musulmonchilik ramzi sifatida gorizontal o'qqa nisbatan og'ishgan holda"
-    },
-    {
-        "id": 5,
-        "question": "O'zbekiston Respublikasining davlat ramzlariga hurmatsizlik qilish qonunchilikda qanday javobgarlikka sabab bo'ladi?",
-        "options": [
-            "Faqat ogohlantirish",
-            "Ma'muriy jarima",
-            "O'zbekiston Respublikasining Jinoyat kodeksiga muvofiq jinoiy javobgarlikkacha tortiladi",
-            "Faqat jamoat ishlariga jalb qilish"
-        ],
-        "answer": "O'zbekiston Respublikasining Jinoyat kodeksiga muvofiq jinoiy javobgarlikkacha tortiladi"
-    }
+Q:[
+    ["O'zbekiston Respublikasining 'Davlat bayrog'i to'g'risida'gi Qonuni qabul qilingan 1991-yil 18-noyabrdagi muhokamalarda bayrog'imizdagi 12 yulduz va yarim oy qaysi osmon sferasi va qamariy taqvim tizimiga qiyosan kiritilgan?", ["Zodiakning 12 burji va osmon sferasining o'n ikki oyi", "12 ta ma'muriy viloyat va Toshkent shahri", "Qadimgi turkiy yillik davrlanish tizimi", "Amir Temur davridagi harbiy qismlar soni"], 0],
+    ["Bayroqdagi moviy rangning qadimgi sug'd va turkiy bitiklardagi falsafiy ma'nosi va Temuriylar davri bayroqlaridagi talqini qanday?", ["Mangulik, osmon, suv va sobitqadamlik", "Faqatgina musaffo osmon va osoyishtalik", "Adolat, jasorat va hurlik ramzi", "Hokimiyat va harbiy qudrat"], 0],
+    ["Bayroqdagi oq rang va uni o'rab turgan ikkita ingichka qizil hoshiya chiziqlarning huquqiy-tarixiy ma'nosi nimani anglatadi?", ["Oq — poklik va tinchliksevarlik; Qizil — tomirlardagi hayotiy kuch", "Oq — adolat va qonun ustuvorligi; Qizil — chegaralar daxlsizligi", "Oq — paxta va oltin zamin; Qizil — bayram tantanalari", "Oq — ma'rifat nuri; Qizil — xalq jasorati"], 0],
+    ["Bayroqdagi o'n ikki yulduzning geometrik joylashuvi qanday tartibda va nechta qatorda guruhlangan?", ["Yuqori qatorda 5 ta, o'rta qatorda 4 ta, quyi qatorda 3 ta", "Uch qatorda teng taqsimlangan 4 tadan yulduz", "Doira shaklida soat strelkasi bo'ylab", "Chapdan o'ngga 6 tadan ikki qator"], 0],
+    ["O'zbekiston Respublikasining Davlat bayrog'i to'g'risidagi qonunga ko'ra, bayroq uzunligi va uning enining o'lchov nisbati aniq qilib qanday belgilangan?", ["1:2 nisbatda", "2:3 nisbatda", "3:4 nisbatda", "1:1 nisbatda"], 0],
+    ["Vexillologiya (bayroqshunoslik) fanida O'zbekiston bayrog'i dizayni yaratilishida asos qilib olingan ranglar gammasi xalqaro standartlarda qanday tasniflanadi?", ["Moviy, oq, yashil va qizil hoshiyali milliy trikolor", "Moviy-oq-yashil geraldik standart", "Turkiy xalqlar umumiy geraldika bayrog'i", "Sharqona simmetrik ranglar tizimi"], 0],
+    ["Davlat bayrog'iga nisbatan hurmatsizlik qilish O'zbekiston Respublikasining qaysi kodekslariga muvofiq jinoiy yoki ma'muriy javobgarlikka sabab bo'ladi?", ["Jinoyat kodeksi va Ma'muriy javobgarlik to'g'risidagi kodeks", "Faqat Fuqarolik kodeksi", "Mehnat kodeksi va Intizomiy nizom", "Faqat Axborot kodeksi"], 0],
+    ["O'zbekiston Respublikasining xalqaro tashkilotlar bosh qarorgohlari oldida ko'tariladigan rasmiy bayrog'i qanday maxsus talablar asosida tikiladi?", ["Maxsus chidamli mato va aniq davlat standartidagi o'lchamli matodan", "Istalgan turdagi ipak matodan", "Faqat qo'lda to'qilgan milliy matodan", "Oddiy mato va ixtiyoriy o'lchamda"], 0],
+    ["Motam e'lon qilingan kunlarda O'zbekiston Respublikasining Davlat bayrog'i bino peshonasiga qanday tartibda o'rnatiladi?", ["Flagshtok (ustun) balandligining yarmigacha tushiriladi", "Qora lenta bilan bog'lab butunlay olib qo'yiladi", "Teskari shaklda osib qo'yiladi", "Binodan batamom yig'ishtirib olinadi"], 0],
+    ["Dunyodagi ilk milliy bayroqlardan biri sifatida tan olingan va eng qadimgi uzluksiz qo'llanilayotgan davlat bayrog'i qaysi davlatga tegishli?", ["Daniya ('Dannebrog')", "Nepal", "Shveysariya", "Misr"], 0]
 ]
