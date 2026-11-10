@@ -1,214 +1,58 @@
-# Viktorina savollari / Вопросы викторины.
-# "a" — toʻgʻri javob indeksi (0..3). Faqat serverda saqlanadi, brauzerga yuborilmaydi.
+# Olimpiada darajasidagi murakkab viktorina savollari
 QUESTIONS = [
-  {
-    "a": 0,
-    "uz": {
-      "q": "Davlat bayrogʻi qaysi yilda qabul qilingan?",
-      "o": [
-        "1991",
-        "1992",
-        "1995",
-        "2001"
-      ]
+    {
+        "id": 1,
+        "question": "O'zgaruvchanlik va qonunchilikka ko'ra, O'zbekiston Respublikasining 'Davlat bayrog'i to'g'risida'gi Qonuni ilk bor nechanchi yilda qabul qilingan va undagi yulduzlar nimani anglatadi?",
+        "options": [
+            "1991-yil 18-noyabr, 12 ta ma'muriy hudud",
+            "1991-yil 31-avgust, 12 ta oy (qamariy taqvim bo'yicha)",
+            "1991-yil 18-noyabr, 12 ta burj (zodiak) belgisi va osmon sferasidagi o'n ikki oy",
+            "1992-yil 2-iyul, 12 ta viloyat"
+        ],
+        "answer": "1991-yil 18-noyabr, 12 ta burj (zodiak) belgisi va osmon sferasidagi o'n ikki oy"
     },
-    "ru": {
-      "q": "В каком году принят Государственный флаг?",
-      "o": [
-        "1991",
-        "1992",
-        "1995",
-        "2001"
-      ]
-    }
-  },
-  {
-    "a": 2,
-    "uz": {
-      "q": "Bayroqdagi yulduzlar soni nechta?",
-      "o": [
-        "8",
-        "10",
-        "12",
-        "14"
-      ]
+    {
+        "id": 2,
+        "question": "Bayroqdagi moviy rang qadimgi turkiy tilda va Temuriylar davrida nimaning ramzi hisoblangan?",
+        "options": [
+            "Tinchlik va osmon",
+            "Mangulik, osmon va suv (sobitqadamlik)",
+            "Tinchliksevarlik va muqaddaslik",
+            "Faqatgina musaffo osmon"
+        ],
+        "answer": "Mangulik, osmon va suv (sobitqadamlik)"
     },
-    "ru": {
-      "q": "Сколько звёзд на флаге?",
-      "o": [
-        "8",
-        "10",
-        "12",
-        "14"
-      ]
-    }
-  },
-  {
-    "a": 0,
-    "uz": {
-      "q": "Oq rang nimani anglatadi?",
-      "o": [
-        "Tinchlik va poklik",
-        "Mustaqillik",
-        "Adolat",
-        "Birdamlik"
-      ]
+    {
+        "id": 3,
+        "question": "O'zbekiston bayrog'idagi oq rang va qizil hoshiyali yupqa chiziqlar (yo'llar) qanday ma'noni anglatadi?",
+        "options": [
+            "Oq rang — poklik, qizil chiziqlar — hayotiy kuchlar",
+            "Oq rang — tinchlik, qizil chiziqlar — jasorat",
+            "Oq rang — muqaddas tinchliksevarlik, qizil chiziqlar — tomirda oqayotgan hayotiy kuchlar",
+            "Oq rang — adolat, qizil chiziqlar — vatanparvarlik"
+        ],
+        "answer": "Oq rang — muqaddas tinchliksevarlik, qizil chiziqlar — tomirda oqayotgan hayotiy kuchlar"
     },
-    "ru": {
-      "q": "Что означает белый цвет?",
-      "o": [
-        "Мир и чистоту",
-        "Независимость",
-        "Справедливость",
-        "Единство"
-      ]
-    }
-  },
-  {
-    "a": 1,
-    "uz": {
-      "q": "Yashil rang nimaning ramzi?",
-      "o": [
-        "Choʻl",
-        "Tabiat va yangilanish",
-        "Togʻlar",
-        "Qurgʻoqchilik"
-      ]
+    {
+        "id": 4,
+        "question": "Hilol (yarim oy) tasviri bayroqda necha gradusli yoy ko'rinishida va qanday joylashgan?",
+        "options": [
+            "Tik turgan holatda, o'ng tomonga qaratilgan",
+            "An'anaviy o'n ikki oy va musulmonchilik ramzi sifatida gorizontal o'qqa nisbatan og'ishgan holda",
+            "Bayroqning qoq markazida, vertikal holatda",
+            "Yulduzlardan chaproqda, to'liq doira shaklining qirqilgan qismi sifatida"
+        ],
+        "answer": "An'anaviy o'n ikki oy va musulmonchilik ramzi sifatida gorizontal o'qqa nisbatan og'ishgan holda"
     },
-    "ru": {
-      "q": "Что символизирует зелёный цвет?",
-      "o": [
-        "Пустыню",
-        "Природу и обновление",
-        "Горы",
-        "Засуху"
-      ]
+    {
+        "id": 5,
+        "question": "O'zbekiston Respublikasining davlat ramzlariga hurmatsizlik qilish qonunchilikda qanday javobgarlikka sabab bo'ladi?",
+        "options": [
+            "Faqat ogohlantirish",
+            "Ma'muriy jarima",
+            "O'zbekiston Respublikasining Jinoyat kodeksiga muvofiq jinoiy javobgarlikkacha tortiladi",
+            "Faqat jamoat ishlariga jalb qilish"
+        ],
+        "answer": "O'zbekiston Respublikasining Jinoyat kodeksiga muvofiq jinoiy javobgarlikkacha tortiladi"
     }
-  },
-  {
-    "a": 1,
-    "uz": {
-      "q": "Bayroqdagi ingichka qizil chiziqlar nimani bildiradi?",
-      "o": [
-        "Chegara",
-        "Hayotbaxsh kuch",
-        "Bayram",
-        "Sanʼat"
-      ]
-    },
-    "ru": {
-      "q": "Что означают тонкие красные полосы?",
-      "o": [
-        "Границу",
-        "Жизненную силу",
-        "Праздник",
-        "Искусство"
-      ]
-    }
-  },
-  {
-    "a": 2,
-    "uz": {
-      "q": "Bayroq ranglari yuqoridan pastga qanday joylashgan?",
-      "o": [
-        "Yashil, oq, koʻk",
-        "Oq, koʻk, yashil",
-        "Koʻk, oq, yashil",
-        "Koʻk, yashil, oq"
-      ]
-    },
-    "ru": {
-      "q": "Как расположены цвета сверху вниз?",
-      "o": [
-        "Зелёный, белый, голубой",
-        "Белый, голубой, зелёный",
-        "Голубой, белый, зелёный",
-        "Голубой, зелёный, белый"
-      ]
-    }
-  },
-  {
-    "a": 0,
-    "uz": {
-      "q": "Yarim oy nimani ifodalaydi?",
-      "o": [
-        "Yangi mustaqil davlatning yangilanishini",
-        "Qishni",
-        "Savdoni",
-        "Sportni"
-      ]
-    },
-    "ru": {
-      "q": "Что выражает полумесяц?",
-      "o": [
-        "Обновление молодого независимого государства",
-        "Зиму",
-        "Торговлю",
-        "Спорт"
-      ]
-    }
-  },
-  {
-    "a": 1,
-    "uz": {
-      "q": "Davlat bayrogʻi kuni qachon nishonlanadi?",
-      "o": [
-        "1-sentabr",
-        "18-noyabr",
-        "8-dekabr",
-        "21-mart"
-      ]
-    },
-    "ru": {
-      "q": "Когда отмечается День Государственного флага?",
-      "o": [
-        "1 сентября",
-        "18 ноября",
-        "8 декабря",
-        "21 марта"
-      ]
-    }
-  },
-  {
-    "a": 1,
-    "uz": {
-      "q": "Bayroqning tomonlar nisbati qanday?",
-      "o": [
-        "1:1",
-        "1:2",
-        "2:3",
-        "3:4"
-      ]
-    },
-    "ru": {
-      "q": "Каково соотношение сторон флага?",
-      "o": [
-        "1:1",
-        "1:2",
-        "2:3",
-        "3:4"
-      ]
-    }
-  },
-  {
-    "a": 1,
-    "uz": {
-      "q": "Ranglarni ajratib turuvchi ingichka qizil chiziqlar nechta?",
-      "o": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ]
-    },
-    "ru": {
-      "q": "Сколько тонких красных полос разделяют цвета?",
-      "o": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ]
-    }
-  }
 ]
