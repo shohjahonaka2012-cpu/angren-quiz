@@ -5,7 +5,6 @@ import os
 app = Flask(__name__, static_folder='static', template_folder='templates')
 DB_PATH = 'data/quiz.db'
 
-# Ma'lumotlar bazasini yaratish va sozlash
 def init_db():
     os.makedirs('data', exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
@@ -15,6 +14,8 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_name TEXT,
             phone TEXT,
+            school TEXT,
+            mfy TEXT,
             score INTEGER,
             total INTEGER,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -29,31 +30,34 @@ init_db()
 def index():
     return send_from_directory('static', 'index.html')
 
-# Natijani bazaga saqlash API
 @app.route('/api/submit', methods=['POST'])
 def submit_result():
-    data = request.json
-    user_name = data.get('user_name', 'Anonim')
-    phone = data.get('phone', '')
-    score = data.get('score', 0)
-    total = data.get('total', 0)
+    try:
+        data = request.json
+        user_name = data.get('user_name', 'Anonim')
+        phone = data.get('phone', '')
+        school = data.get('school', '')
+        mfy = data.get('mfy', '')
+        score = data.get('score', 0)
+        total = data.get('total', 0)
 
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
-    cursor.execute(
-        'INSERT INTO results (user_name, phone, score, total) VALUES (?, ?, ?, ?)',
-        (user_name, phone, score, total)
-    )
-    conn.commit()
-    conn.close()
-    return jsonify({"status": "ok", "message": "Natija saqlandi!"})
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        cursor.execute(
+            'INSERT INTO results (user_name, phone, school, mfy, score, total) VALUES (?, ?, ?, ?, ?, ?)',
+            (user_name, phone, school, mfy, score, total)
+        )
+        conn.commit()
+        conn.close()
+        return jsonify({"status": "ok", "message": "Natija muvaffaqiyatli saqlandi!"})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
-# Admin paneli — Barcha natijalar tarixini ko'rish
 @app.route('/admin')
 def admin():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
-    cursor.execute('SELECT user_name, phone, score, total, created_at FROM results ORDER BY id DESC')
+    cursor.execute('SELECT user_name, phone, school, mfy, score, total, created_at FROM results ORDER BY id DESC')
     rows = cursor.fetchall()
     conn.close()
     return render_template('admin.html', results=rows)
