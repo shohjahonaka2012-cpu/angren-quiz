@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin · Bayroq viktorinasi</title>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/static/style.css">
-<style>.two{display:grid;gap:20px}@media(min-width:800px){.two{grid-template-columns:1fr 1fr}}.kpi{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 20px}.kpi div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 18px}.kpi b{display:block;font-size:28px}
-form.s{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}form.s input{max-width:340px}</style></head>
-<body><main style="max-width:1100px">
-<h1 style="font-size:30px">Admin panel</h1>
-<div class="kpi">
-<div><b>{{ stats.n }}</b>yakunlagan ishtirokchi</div>
-<div><b>{{ started }}</b>boshlagan (jami)</div>
-<div><b>{{ '%.0f'|format(stats.avg or 0) }}%</b>oʻrtacha natija</div></div>
-<form class="s" method="get"><input name="q" value="{{ q }}" placeholder="Qidirish: ism, telefon, maktab, MFY">
-<button class="btn">Qidirish</button><a class="btn alt" style="text-decoration:none" href="/admin/export.csv{{ '?q=' ~ q|urlencode if q }}">CSV yuklab olish</a></form>
-<h2>Ishtirokchilar ({{ total_rows }})</h2>
-<div class="tw"><table><tr><th>#</th><th>F.I.Sh.</th><th>Telefon</th><th>Maktab</th><th>MFY</th><th>Ball</th><th>%</th><th>Sana</th></tr>
-{% for r in rows %}<tr><td>{{ loop.index }}</td><td>{{ r.name }}</td><td>{{ r.phone }}</td><td>{{ r.school }}</td><td>{{ r.mfy }}</td>
-<td><b>{{ (r.score * 100 / r.total)|round|int }}</b></td><td>{{ (r.score * 100 / r.total)|round|int }}%</td><td>{{ fmt(r.finished) }}</td></tr>
-{% else %}<tr><td colspan="8">Hozircha natijalar yoʻq.</td></tr>{% endfor %}</table></div>
-<div class="two" style="margin-top:28px">
-<div><h2>MFY reytingi</h2><div class="tw"><table><tr><th>MFY</th><th>Soni</th><th>Oʻrt. %</th></tr>
-{% for m in mfys %}<tr><td>{{ m.k }}</td><td>{{ m.n }}</td><td>{{ '%.0f'|format(m.avg) }}%</td></tr>{% endfor %}</table></div></div>
-<div><h2>Maktablar reytingi</h2><div class="tw"><table><tr><th>Maktab</th><th>Soni</th><th>Oʻrt. %</th></tr>
-{% for m in schools %}<tr><td>{{ m.k }}</td><td>{{ m.n }}</td><td>{{ '%.0f'|format(m.avg) }}%</td></tr>{% endfor %}</table></div></div></div>
-</main></body></html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Viktorina Tarixi</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; margin: 20px; }
+        h1 { color: #333; text-align: center; }
+        table { width: 100%; border-collapse: collapse; background: #fff; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: center; }
+        th { background-color: #007bff; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1>So'rovnomalar va Natijalar Tarixi</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Ism / Foydalanuvchi</th>
+                <th>Telefon raqam</th>
+                <th>Natija</th>
+                <th>Sana va Vaqt</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in results %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ r[0] }}</td>
+                <td>{{ r[1] }}</td>
+                <td><b>{{ r[2] }}</b> / {{ r[3] }}</td>
+                <td>{{ r[4] }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">Hali hech qanday natija mavjud emas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
