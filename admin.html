@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin · Bayroq viktorinasi</title>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+<style>.two{display:grid;gap:20px}@media(min-width:800px){.two{grid-template-columns:1fr 1fr}}.kpi{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 20px}.kpi div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 18px}.kpi b{display:block;font-size:28px}
+form.s{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap;align-items:center}form.s input[type=text]{max-width:340px}a.btn{text-decoration:none;display:inline-block}a.l{color:var(--blue);font-weight:600}.mut{color:var(--mut)}</style></head>
+<body><main style="max-width:1100px">
+<h1 style="font-size:30px">Admin panel</h1>
+<div class="kpi">
+<div><b>{{ stats.n }}</b>yakunlagan ishtirokchi</div>
+<div><b>{{ started }}</b>boshlagan (jami)</div>
+<div><b>{{ '%.0f'|format(stats.avg or 0) }}%</b>oʻrtacha natija</div></div>
+<form class="s" method="get"><input type="text" name="q" value="{{ q }}" placeholder="Qidirish: ism, telefon, maktab, MFY">
+<label style="margin:0"><input type="checkbox" name="all" value="1" {{ 'checked' if all }} style="width:auto"> tugatmaganlar ham</label>
+<button class="btn">Qidirish</button>
+<a class="btn alt" href="/admin/export.csv?q={{ q|urlencode }}{{ '&all=1' if all }}">Natijalar CSV</a>
+<a class="btn alt" href="/admin/answers.csv">Barcha javoblar tarixi CSV</a></form>
+<h2>Ishtirokchilar ({{ total_rows }})</h2>
+<p class="mut">Ismni bosing — har bir savolga bergan javobini koʻrasiz. Barcha yozuvlar doimiy saqlanadi, oʻchirilmaydi.</p>
+<div class="tw"><table><tr><th>#</th><th>F.I.Sh.</th><th>Telefon</th><th>Maktab</th><th>MFY</th><th>Ball</th><th>%</th><th>Davomiyligi</th><th>Sana</th></tr>
+{% for r in rows %}<tr><td>{{ loop.index }}</td><td><a class="l" href="/admin/attempt/{{ r.id }}">{{ r.name }}</a></td><td>{{ r.phone }}</td><td>{{ r.school }}</td><td>{{ r.mfy }}</td>
+{% if r.finished %}<td><b>{{ (r.score * 100 / r.total)|round|int }}</b></td><td>{{ (r.score * 100 / r.total)|round|int }}%</td><td>{{ dur(r.finished - r.created) }}</td><td>{{ fmt(r.finished) }}</td>
+{% else %}<td colspan="3" class="mut">tugatmagan</td><td>{{ fmt(r.created) }}</td>{% endif %}</tr>
+{% else %}<tr><td colspan="9">Hozircha natijalar yoʻq.</td></tr>{% endfor %}</table></div>
+<div class="two" style="margin-top:28px">
+<div><h2>MFY reytingi</h2><div class="tw"><table><tr><th>MFY</th><th>Soni</th><th>Oʻrt. %</th></tr>
+{% for m in mfys %}<tr><td>{{ m.k }}</td><td>{{ m.n }}</td><td>{{ '%.0f'|format(m.avg) }}%</td></tr>{% endfor %}</table></div></div>
+<div><h2>Maktablar reytingi</h2><div class="tw"><table><tr><th>Maktab</th><th>Soni</th><th>Oʻrt. %</th></tr>
+{% for m in schools %}<tr><td>{{ m.k }}</td><td>{{ m.n }}</td><td>{{ '%.0f'|format(m.avg) }}%</td></tr>{% endfor %}</table></div></div></div>
+</main></body></html>
